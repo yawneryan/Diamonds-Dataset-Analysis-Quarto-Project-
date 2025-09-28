@@ -1,0 +1,37 @@
+---
+title: "Quarto Assignment"
+author: "Yousuf Ahmed Nahian"
+format: pdf
+execute:
+  echo: false
+---
+
+# Introduction
+
+-   Dataset with Diamonds. We see the differences between carat, price and cut.
+
+# Carat and Price
+
+```{r}
+library(ggplot2)
+
+ggplot(diamonds, aes(x=carat, y=price)) + geom_point(alpha=0.3, color="blue") + geom_smooth(method="lm", color="yellow", se=FALSE) + labs(title="Price vs Carat", x="Carat", y="Price")
+```
+
+-   Bigger Diamonds usually cost more
+-   Relationship is Positive
+
+# Price By Cut
+
+```{r}
+ggplot(diamonds, aes(x=cut, y=price, fill=cut)) + geom_boxplot(color="brown") + labs(title="Price by Cut", x="Cut", y="Price")
+```
+
+-   Cut Quality also affects the price
+-   Boxplot show wide price ranges and outliers
+
+# Summary
+
+-   Carat is strongly linked to price.
+-   Cut matters.
+-   Data shows price has big variation.
